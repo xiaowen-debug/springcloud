@@ -1,1 +1,2 @@
 com\xiaowen\springcloud\entities\Dept.class
+com\xiaowen\springcloud\service\DeptClientService.class
