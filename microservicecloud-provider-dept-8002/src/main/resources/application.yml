@@ -1,0 +1,57 @@
+server:
+  port: 8002
+
+# mybatis配置文件所在路径
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  # 所有Entity别名类所在包
+  type-aliases-package: com.xiaowen.springcloud.entities
+  # mapper映射文件
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  application:
+    #不能修改，多个相同的微服务
+    name: microservicecloud-dept
+  datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动包
+    driver-class-name: org.gjt.mm.mysql.Driver
+    # 数据库名称
+    url: jdbc:mysql://localhost:3306/cloudDB02
+    username: root
+    password: 123456
+    dbcp2:
+      # 数据库连接池的最小维持连接数
+      min-idle: 5
+      # 初始化连接数
+      initial-size: 5
+      # 最大连接数
+      max-total: 5
+      # 等待连接获取的最大超时时间
+      max-wait-millis: 200
+
+#客户端注册进eureka服务列表内
+eureka:
+  client:
+    service-url:
+      #单机版：defaultZone: http://localhost:7001/eureka
+      #集群
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  #别名处理，自定义服务名称信息
+  instance:
+    instance-id: microservicecloud-dept8002
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
+
+info:
+  app.name: xiaowen-microservicecloud
+  company.name: www.xiaowen.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+
+
+
