@@ -32,4 +32,23 @@ spring:
       # 等待连接获取的最大超时时间
       max-wait-millis: 200
 
+#客户端注册进eureka服务列表内
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  #别名处理，自定义服务名称信息
+  instance:
+    instance-id: microservicecloud-dept8001
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
+
+info:
+  app.name: xiaowen-microservicecloud
+  company.name: www.xiaowen.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+
+
 
