@@ -36,7 +36,9 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka
+      #单机版：defaultZone: http://localhost:7001/eureka
+      #集群
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
   #别名处理，自定义服务名称信息
   instance:
     instance-id: microservicecloud-dept8001
