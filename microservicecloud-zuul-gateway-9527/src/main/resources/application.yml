@@ -1,0 +1,31 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+
+#路径访问映射
+zuul:
+  #统一前缀
+  prefix: /xiaowen
+  #原真实服务吗忽略 一个使用具体名称，多个批量则使用"*"
+  #ignored-services: microservicecloud-dept
+  ignored-services: "*"
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/**
+
+info:
+  app.name: xiaowen-microcloud
+  company.name: www.xiaowen.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
