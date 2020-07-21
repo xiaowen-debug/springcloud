@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="microservicecloud:war">
+    <output-path>$PROJECT_DIR$/microservicecloud/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>microservicecloud</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="microservicecloud.war">
+      <element id="artifact" artifact-name="microservicecloud:war exploded" />
+    </root>
+  </artifact>
+</component>
